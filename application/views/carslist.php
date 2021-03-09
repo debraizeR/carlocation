@@ -11,6 +11,7 @@
                 <th>Carburant</th>
                 <th>Année</th>
                 <th>Prix de location</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,7 @@
                     <td><?= $car->c_fuel ?></td>
                     <td><?= $car->c_year ?></td>
                     <td><?= $car->c_cost ?></td>
+                    <td><input type="button" href="form_valid_car" class="btn btn-light" id="carLoc" name="carLoc" value="Louer">
                 </tr>
 
                 <?php

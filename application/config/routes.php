@@ -50,7 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'IndexCtrl/view';
+$route['form_valid_index'] = 'IndexCtrl/form_validation';
 $route['carslist'] = 'CarslistCtrl/view';
+$route['form_valid_car'] = 'CarslistCtrl/form_validation'
 $route['form'] = 'FormCtrl/view';
 $route['form/update/(:any)'] = 'FormCtrl/view/$id' ;
 $route['form_validation'] = 'FormCtrl/form_validation';

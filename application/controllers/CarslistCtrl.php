@@ -16,4 +16,11 @@ class CarslistCtrl extends CI_Controller
         $this->load->view("carslist", $data);
         $this->load->view("footer");
     }
+
+    public function form_validation()//changer en non form
+    {
+        $this->load->library("form_validation");
+        
+        if($this->form_validation->run())
+    }
 }
