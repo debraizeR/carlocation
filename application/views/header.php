@@ -9,6 +9,7 @@
     <link href="<?= base_url() ?>../assets/css/style.css" rel="stylesheet">
 </head>
 <body>
+<div>
 <a href="<?= base_url() ?>"><input type="button" class="lien btn btn-light" value="Accueil"></a>
 <a href="<?= base_url() ?>carslist"><input type="button" class="lien btn btn-light" value="Louer une voiture"></a>
 
@@ -28,5 +29,5 @@ else
     <a href="<?= base_url() ?>logout"><input type="button" class="lien btn btn-light" value="Déconnexion"></a>
     <?php
 }
-
 ?>
+</div>

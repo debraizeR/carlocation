@@ -13,6 +13,26 @@ class Main_model extends CI_Model
         return $cars->result();
     }
 
+    public function get_car_by_id($id)
+    {
+        $car = $this->db->get_where("car", array("c_id" =>$id));
+        return $car->result();
+    }
+
+    public function get_cars_by_date($startdate, $enddate)
+    {
+        $query = "SELECT * FROM car WHERE c_id NOT IN (
+            SELECT DISTINCT(car.c_id) FROM car 
+            INNER JOIN location on car.c_id = location.c_id
+            WHERE (('".$startdate."'  BETWEEN l_startdate AND l_enddate)
+            OR ('".$enddate."' BETWEEN l_startdate AND l_enddate)
+            OR (l_startdate BETWEEN '".$startdate."' AND '".$enddate."')
+            OR (l_enddate  BETWEEN '".$startdate."' AND '".$enddate."')) AND l_isReturn = 0
+            )";
+        $cars = $this->db->query($query);
+        return $cars->result();
+    }
+
     public function get_profile($id)
     {
         $profile = $this->db->get_where("userloc", array("u_id" => $id));
@@ -59,5 +79,12 @@ class Main_model extends CI_Model
     public function insert_user($data)
     {
         $this->db->insert("userloc", $data);
+    }
+
+    public function insert_location()
+    {
+        $data = array("l_startdate" =>$this->session->startdate, "l_enddate" => $this->session->enddate, "l_addkilometer" => NULL, 
+        "l_isValid" => 0, "l_isReturn" => 0, "u_id" => $this->session->id, "c_id" => $this->session->car_id);
+        $this->db->insert("location", $data);
     }
 }

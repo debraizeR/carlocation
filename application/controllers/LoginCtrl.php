@@ -32,11 +32,20 @@ class LoginCtrl extends CI_Controller{
                 $profile = $this->Main_model->get_profile_login($data);
                 if(isset($profile[0]))
                 {
+                    $idProfile = array("id"=>$profile[0]->u_id);
                     $logProfile = array("login"=>$profile[0]->u_login);
                     $passwordProfile = array("password"=>$profile[0]->u_password);
+                    $this->session->set_userdata($idProfile);
                     $this->session->set_userdata($logProfile);
                     $this->session->set_userdata($passwordProfile);
-                    redirect(base_url()."profile");
+                    if(isset($this->session->loc_url))
+                    {
+                        redirect($this->session->loc_url);
+                    }
+                    else
+                    {
+                        redirect(base_url()."profile");
+                    }
                 }
                 else
                 {

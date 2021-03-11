@@ -50,9 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'IndexCtrl/view';
-$route['form_valid_index'] = 'IndexCtrl/form_validation';
+$route['form_valid_index'] = 'CarslistCtrl/form_validation';
 $route['carslist'] = 'CarslistCtrl/view';
-$route['form_valid_car'] = 'CarslistCtrl/form_validation'
+$route['carLoc/(:any)'] = 'CarslistCtrl/choose_car/$id';
 $route['form'] = 'FormCtrl/view';
 $route['form/update/(:any)'] = 'FormCtrl/view/$id' ;
 $route['form_validation'] = 'FormCtrl/form_validation';
@@ -60,6 +60,9 @@ $route['login'] = 'LoginCtrl/view';
 $route['form_valid_log'] = 'LoginCtrl/form_validation'; 
 $route['logout'] = 'LoginCtrl/logout';
 $route['profile'] = 'ProfileCtrl/view';
+$route['location'] = 'LocationCtrl/view';
+$route['confirm'] = 'LocationCtrl/confirm';
+$route['viewConfirm'] = 'LocationCtrl/viewConfirm';
 $route['deleteLocation/(:any)'] = 'ProfileCtrl/delete_location/$id'; 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

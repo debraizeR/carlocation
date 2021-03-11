@@ -1,4 +1,26 @@
 <div class="container">
+    <?php 
+    if(isset($this->session->startdate) && isset($this->session->enddate) && isset($this->session->car_id) 
+     && isset($this->session->login) && isset($this->session->password))
+    {
+        ?>
+        <a href="location"><input type="button" class="lien btn btn-light my-2" id="currentLoc" name="currentLoc" value="Location en cours de réservation" ></a>
+        <?php
+    }
+    ?>
+    
+    <div class="row">
+        <form method="post" action="form_valid_index">
+            <label for="startDate">Début de location</label>
+            <input type="date" class="form-index ms-1 me-3" id="startDate" name="startDate" 
+            <?php if(isset($this->session->startdate)){ ?> value="<?= $this->session->startdate ?>" <?php } ?> required>
+            <label for="endDate">Fin de location</label>
+            <input type="date" class="form-index ms-1 me-3" id="endDate" name="endDate" 
+            <?php if(isset($this->session->enddate)){ ?> value="<?= $this->session->enddate ?>" <?php } ?> required>
+            <input type="submit" class="btn btn-light mx-3" id="confirmDate" name="confirmDate">
+        </form>
+    </div>
+
 <div class="row">
     <table class="table text-center">
         <thead>
@@ -30,7 +52,7 @@
                     <td><?= $car->c_fuel ?></td>
                     <td><?= $car->c_year ?></td>
                     <td><?= $car->c_cost ?></td>
-                    <td><input type="button" href="form_valid_car" class="btn btn-light" id="carLoc" name="carLoc" value="Louer">
+                    <td><a href="carLoc/<?= $car->c_id ?>"><input type="button" class="btn btn-light" id="carLoc" name="carLoc" value="Louer"></a></td>
                 </tr>
 
                 <?php
