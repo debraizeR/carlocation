@@ -35,9 +35,29 @@ class LocationCtrl extends CI_Controller
 
     public function viewConfirm()
     {
-        $this->load->view("header");
-        $this->load->view("confirmLocation");
-        $this->load->view("footer");
+        if(isset($this->session->startdate) && isset($this->session->enddate) && isset($this->session->car_id))
+        {
+            $this->session->unset_userdata("startdate");
+            $this->session->unset_userdata("enddate");
+            $this->session->unset_userdata("car_id");
+            $this->load->view("header");
+            $this->load->view("confirmLocation");
+            $this->load->view("footer");
+        }
+        else
+        {
+            redirect(base_url()."carslist");
+        }
+        
+    }
+
+    public function cancer_location()
+    {
+        $this->session->unset_userdata("startdate");
+        $this->session->unset_userdata("enddate");
+        $this->session->unset_userdata("loc_url");
+        $this->session->unset_userdata("car_id");
+        redirect(base_url()."carslist");
     }
 
     public function confirm()
@@ -45,9 +65,7 @@ class LocationCtrl extends CI_Controller
         if(isset($this->session->startdate) && isset($this->session->enddate) && isset($this->session->id) && isset($this->session->car_id))
         {
             $this->Main_model->insert_location();
-            $this->session->unset_userdata("startdate");
-            $this->session->unset_userdata("enddate");
-            $this->session->unset_userdata("loc_url");
+            $this->session->unset_userdata("loc_url");            
             redirect(base_url()."viewConfirm");
         }
         else

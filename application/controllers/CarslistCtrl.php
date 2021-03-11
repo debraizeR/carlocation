@@ -54,7 +54,10 @@ class CarslistCtrl extends CI_Controller
 
     public function choose_car()
     {
-        $this->session->set_userdata("car_id", $this->uri->segment(2));
+        if(isset($this->session->startdate) && isset($this->session->enddate))
+        {
+            $this->session->set_userdata("car_id", $this->uri->segment(2));
+        }
         redirect(base_url()."location");
     }
 }

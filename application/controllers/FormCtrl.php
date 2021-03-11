@@ -14,8 +14,15 @@ class FormCtrl extends CI_Controller
         $this->load->view("header");
         if(null !== $this->uri->segment(2) && $this->uri->segment(2) === "update")
         {
-            $data["user"] = $this->Main_model->get_profile($this->uri->segment(3));
-            $this->load->view("form", $data);
+            if(isset($this->session->id))
+            {
+                $data["user"] = $this->Main_model->get_profile($this->session->id); //get_profile($this->session->id)
+                $this->load->view("form", $data);
+            }
+            else
+            {
+                redirect(base_url()."form");
+            }
         }
         else
         {
@@ -63,6 +70,16 @@ class FormCtrl extends CI_Controller
                 $this->session->set_userdata($login);
                 $this->session->set_userdata($password);
                 redirect(base_url()."profile");
+            }
+            elseif($this->input->post("update"))
+            {
+                $this->Main_model->update_user($data);
+                $login = array("login"=> $this->input->post("login"));
+                $password = array("password"=>$this->input->post("password"));
+                $this->session->set_userdata($login);
+                $this->session->set_userdata($password);
+                redirect(base_url()."profile");
+
             }
             else{
                 redirect(base_url());

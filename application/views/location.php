@@ -78,6 +78,7 @@
             <?php
             }
             ?>
+            <a href="cancer_location"><input type="button" class="lien btn btn-light" value="Annuler la location"></a>
         </div>
     </div>
 </div>

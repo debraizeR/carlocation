@@ -1,9 +1,17 @@
-
     <h1>Formulaire d'inscription</h1>
 
-    <?php echo validation_errors(); ?>
+    <?php
+    if(null !== ($this->uri->segment(2)) && $this->uri->segment(2) == "update")
+    {
+        $action = base_url()."/form_validation";
+    }
+    else
+    {
+        $action = "form_validation";
+    }
+    echo validation_errors(); ?>
 
-<form method="post" action="form_validation">
+<form method="post" action="<?= $action ?>">
     <label for="login">Identifiant</label>
     <input type="text" class="form-control" id="login" name="login" 
                 <?php if(isset($user)) { ?> value="<?= $user[0]->u_login ?>"<?php } ?> placeholder="Identifiant de connexion" required><br>
@@ -37,7 +45,8 @@
     <label for="mail">Adresse mail</label>
     <input type="email" class="form-control" id="mail" name="mail" 
                 <?php if(isset($user)) { ?> value="<?= $user[0]->u_mail ?>" <?php } ?> placeholder="Ex : dupontrobert@gmail.com" required><br>
-    <input type="submit" class="btn btn-light" 
-                <?php if(isset($user)) { ?>id="update" name="update" value="Modifier le profil" <?php }
-                else{ ?> id="insert" name="insert" value="Valider l'inscription" <?php } ?>>
+    <input type="submit" class="btn btn-light"  
+                id="<?php if(isset($user)) { ?>update<?php } else{ ?>insert<?php } ?>"
+                name="<?php if(isset($user)) { ?>update<?php } else{ ?>insert<?php } ?>" 
+                value="<?php if(isset($user)) { ?>Modifier le profil<?php }else{ ?>Valider l'inscription<?php } ?>" >
 </form>

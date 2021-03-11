@@ -33,6 +33,17 @@ class Main_model extends CI_Model
         return $cars->result();
     }
 
+    public function delete_car($id)
+    {
+        $this->db->delete("car", array("c_id" => $id));
+    }
+
+    public function get_all_profiles()
+    {
+        $profiles = $this->db->get_where("userloc", array("u_admin" => 0));
+        return $profiles->result();
+    }
+
     public function get_profile($id)
     {
         $profile = $this->db->get_where("userloc", array("u_id" => $id));
@@ -45,6 +56,25 @@ class Main_model extends CI_Model
         return $profile->result();
     }
 
+    public function update_user($data)
+    {
+        $this->db->where("u_id", $this->session->id);
+        $this->db->update("userloc", $data);
+    }
+
+    public function delete_user($id)
+    {
+        $this->db->where(array("u_id"=>$id, "u_admin" => 0));
+        $this->db->delete("userloc");
+    }
+
+    public function get_all_locations()
+    {
+        $this->db->join("car","location.c_id = car.c_id", "inner");
+        $this->db->join("userloc", "location.u_id = userloc.u_id", "inner");
+        $locations = $this->db->get_where("location", array("l_isValid" => 1, "l_isReturn" => 1));
+        return $locations->result();
+    }
 
     public function get_location_by_id($id) // non utilisé
     {
@@ -74,6 +104,23 @@ class Main_model extends CI_Model
         $this->db->join("userloc", "location.u_id = userloc.u_id", "inner");
         $location = $this->db->get_where("location", array("l_isValid" =>1, "l_isReturn"=>0));
         return $location->result();
+    }
+
+    public function valid_loc($id)
+    {
+        $this->db->where(array("l_id" =>$id));
+        $this->db->update("location", array("l_isValid" => 1));
+    }
+
+    public function return_loc($id)
+    {
+        $this->db->where(array("l_id" => $id));
+        $this->db->update("location", array("l_isReturn" => 1));
+    }
+
+    public function delete_location($id)
+    {
+        $this->db->delete("location", array("l_id" => $id));
     }
 
     public function insert_user($data)
