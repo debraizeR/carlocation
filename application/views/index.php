@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -22,22 +21,24 @@
                         <h5 class="card-title mb-3">Réservez votre véhicule</h5>
                     </div>
                     <div class="row align-items-center AX76Q3">
-                        <div class="col-sm-6">
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon2"><i class="fas fa-calendar-day"></i></span>
-                                <input type="text" class="form-control" placeholder="Début de la location" aria-describedby="basic-addon2">
+                        <form method="post" action="<?= base_url() ?>form_valid_index">
+                            <div class="col-sm-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text form-text" id="basic-addon2"><i class="fas fa-calendar-day"></i></span>
+                                    <input type="date" class="form-control" id="startDate" name="startDate" placeholder="Début de la location" aria-describedby="basic-addon2">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon2"><i class="fad fa-calendar-day"></i></span>
-                                <input type="text" class="form-control" placeholder="Fin de la location" aria-describedby="basic-addon2">
+                            <div class="col-sm-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text form-text" id="basic-addon2"><i class="fad fa-calendar-day"></i></span>
+                                    <input type="date" class="form-control" id="endDate" name="endDate" placeholder="Fin de la location" aria-describedby="basic-addon2">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <hr>
-                            <button type="button" class="btn btn-outline-primary mr-2 AD38XL"><i class="fas fa-search-location"></i> Rechercher</button>
-                        </div>
+                            <div class="col-sm-12">
+                                <hr>
+                                <input type="submit" id="confirmDate" name="confirmDate" class="btn btn-outline-primary mr-2 AD38XL" value="Rechercher"><i class="fas fa-search-location"></i> Rechercher</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
