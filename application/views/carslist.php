@@ -1,5 +1,7 @@
 <div class="container">
     <?php 
+    $today = date("Y-m-d");
+
     if(isset($this->session->startdate) && isset($this->session->enddate) && isset($this->session->car_id) 
      && isset($this->session->login) && isset($this->session->password))
     {
@@ -12,10 +14,10 @@
     <div class="row">
         <form method="post" action="form_valid_index">
             <label for="startDate">Début de location</label>
-            <input type="date" class="form-index ms-1 me-3" id="startDate" name="startDate" 
+            <input type="date" class="form-index ms-1 me-3" id="startDate" name="startDate" min="<?= $today ?>"
             <?php if(isset($this->session->startdate)){ ?> value="<?= $this->session->startdate ?>" <?php } ?> required>
             <label for="endDate">Fin de location</label>
-            <input type="date" class="form-index ms-1 me-3" id="endDate" name="endDate" 
+            <input type="date" class="form-index ms-1 me-3" id="endDate" name="endDate" min="<?= $today ?>"
             <?php if(isset($this->session->enddate)){ ?> value="<?= $this->session->enddate ?>" <?php } ?> required>
             <input type="submit" class="btn btn-light mx-3" id="confirmDate" name="confirmDate">
         </form>

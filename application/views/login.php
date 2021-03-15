@@ -1,3 +1,21 @@
+<?php
+
+if(isset($this->session->error_login))
+{
+    ?>
+    <span class="lien"><?= $this->session->error_login ?></span>
+    <?php
+    $this->session->unset_userdata("error_login");
+}
+if(isset($this->session->error_password))
+{
+    ?>
+    <span class="lien"><?= $this->session->error_password ?></span>
+    <?php
+    $this->session->unset_userdata("error_password");
+}
+
+?>
 <form method="post" action="form_valid_log">
     <label for="login">Identifiant</label>
     <input type="text" id="login" name="login" required>

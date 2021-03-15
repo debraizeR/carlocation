@@ -21,8 +21,8 @@ class LocationCtrl extends CI_Controller
             {
                 $profile = array("u_login" => $this->session->login, "u_password" => $this->session->password);
                 $data["profiles"] = $this->Main_model->get_profile_login($profile);
+                $data["payment"] = $this->Main_model->get_payment($this->session->id);
             }
-
             $this->load->view("location", $data);
         }
         else

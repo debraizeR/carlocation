@@ -49,6 +49,16 @@ class LoginCtrl extends CI_Controller{
                 }
                 else
                 {
+                    $testLogin = $this->Main_model->get_profile_by_login($this->input->post("login"));
+                    if(isset($testLogin[0]))
+                    {
+                        $this->session->set_userdata("error_password", "Mot de passe incorrect");
+                    }
+                    else
+                    {
+                        $this->session->set_userdata("error_login", "Identifiant incorrect");
+                    }
+                    
                     redirect(base_url()."login");
                 }
             }

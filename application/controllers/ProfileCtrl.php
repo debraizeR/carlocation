@@ -20,7 +20,11 @@ class ProfileCtrl extends CI_Controller
             $this->session->set_userdata("id", $data["profiles"][0]->u_id);
             if($data["profiles"][0]->u_admin == 0)
             {
-                $data["locations"] = $this->Main_model->get_location_by_user($this->session->login);//get_location_by_user($data["profiles"][0]->u_id);
+                $data["payment"] = $this->Main_model->get_payment($this->session->id);
+                
+                $data["past_loc"] = $this->Main_model->get_past_location($this->session->login);
+                $data["next_loc"] = $this->Main_model->get_next_location($this->session->login);
+                $data["current_loc"] = $this->Main_model->get_current_location($this->session->login);
                 $this->load->view("profile", $data);
             }
             elseif($data["profiles"][0]->u_admin == 1)
@@ -30,6 +34,7 @@ class ProfileCtrl extends CI_Controller
                 $data["cars"] = $this->Main_model->get_cars();
                 $data["locations"] = $this->Main_model->get_location_non_valid();
                 $data["locationsReturn"] = $this->Main_model->get_location_non_return();
+                $this->session->set_userdata("admin", 1);
                 $this->load->view("profileAdmin", $data);
             }
             else
