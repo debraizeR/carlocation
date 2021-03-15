@@ -80,4 +80,20 @@ class ProfileCtrl extends CI_Controller
         $this->Main_model->delete_user($this->uri->segment(2));
         redirect(base_url()."profile");
     }
+
+    public function show_location()
+    {
+        $this->load->view("adminLocation");
+
+    }
+
+    public function show_car()
+    {
+        $this->load->view("adminCar");
+    }
+
+    public function show_profile()
+    {
+        $this->load->view("adminProfile");
+    }
 }
