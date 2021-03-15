@@ -23,7 +23,7 @@
         </form>
     </div>
 
-<div class="row">
+<div class="row table-responsive">
     <table class="table text-center">
         <thead>
             <tr>
@@ -65,4 +65,3 @@
     </table>
 </div>
 </div>
-    <a href="form">redirection</a>

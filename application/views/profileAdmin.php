@@ -11,10 +11,9 @@ $this->session->set_userdata("all_profiles", $all_profiles);
     <div class="row">
         <div class="col-2 border">
             <div class="row justify-content-center my-5">
-                <input type="button" class="lien btn btn-light my-3" value="location" onclick="hide_location()">
-                <input type="button" class="lien btn btn-light my-3" value="car" onclick="hide_car()">
-                <input type="button" class="lien btn btn-light my-3" value="profile" onclick="hide_profile()">
-                <?php if(isset($this->session->page)){ echo "oui"; }else{ echo "non"; } ?>
+                <input type="button" class="lien btn btn-light my-2" value="location" onclick="hide_location()">
+                <input type="button" class="lien btn btn-light my-2" value="car" onclick="hide_car()">
+                <input type="button" class="lien btn btn-light my-2" value="profile" onclick="hide_profile()">
             </div>
         </div>
         <div class="col-10 border" style="min-height: 100vh; max-height:100vh; ">
