@@ -1,4 +1,8 @@
-    <h1>Formulaire d'inscription</h1>
+<body class="ASW74X">
+
+    <div class="card AX8W13 top-100 star-t50 p-2 shadow">
+        <div class="card-body">
+<h1>Formulaire d'inscription</h1>
 
     <?php
     if(null !== ($this->uri->segment(2)) && $this->uri->segment(2) == "update")
@@ -63,8 +67,15 @@
     <input type="email" class="form-control" id="mail" name="mail" 
                 <?php if(isset($user)) { ?> value="<?= $user[0]->u_mail ?>" <?php } ?> placeholder="Ex : dupontrobert@gmail.com" required><br>
     <span class="lien"><?= form_error("mail") ?></span>
-    <input type="submit" class="btn btn-light"  
+    <hr>
+    <input type="submit" class="btn btn-outline-primary mr-2 AD38XL"  
                 id="<?php if(isset($user)) { ?>update<?php } else{ ?>insert<?php } ?>"
                 name="<?php if(isset($user)) { ?>update<?php } else{ ?>insert<?php } ?>" 
                 value="<?php if(isset($user)) { ?>Modifier le profil<?php }else{ ?>Valider l'inscription<?php } ?>" >
 </form>
+
+        </div>
+
+    </div>
+
+</body>
