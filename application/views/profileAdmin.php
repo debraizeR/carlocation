@@ -7,16 +7,16 @@ $this->session->set_userdata("all_profiles", $all_profiles);
 
 ?>
 
-<div class="container border">
+<div class="container border" style="overflow: hidde; min-width: 100vw; max-width:100vw">
     <div class="row">
-        <div class="col-2 border">
+        <div class="col-2 border" style="min-height: 100vh; max-height:100vh;">
             <div class="row justify-content-center my-5">
                 <input type="button" class="lien btn btn-light my-2" value="location" onclick="hide_location()">
                 <input type="button" class="lien btn btn-light my-2" value="car" onclick="hide_car()">
                 <input type="button" class="lien btn btn-light my-2" value="profile" onclick="hide_profile()">
             </div>
         </div>
-        <div class="col-10 border" style="min-height: 100vh; max-height:100vh; ">
+        <div class="col-10 border" style="overflow: auto; max-height:100vh;">
             <div id="test" style="width: 100%;">
             </div>
         </div>
@@ -27,7 +27,10 @@ $this->session->set_userdata("all_profiles", $all_profiles);
 
 <script>
 
-    
+$(document).ready(function(){
+        $("body").css("overflow", "hidden");
+
+    });
 
     function hide_location()
     {
