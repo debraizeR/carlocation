@@ -1,6 +1,6 @@
-<div class="container border">
+<div class="container">
     <div class="row">
-        <div class="col-6 border">
+        <div class="col-6 border-bottom">
             <div class="row justify-content-center my-5">
                 <?php
                 foreach ($profiles as $profile) {
@@ -16,7 +16,7 @@
                         <b>Ville</b> : <?= $profile->u_city ?><br>
                         <b>Numéro de téléphone</b> : <?= $profile->u_phone ?><br>
                         <b>Adresse mail</b> : <?= $profile->u_mail ?><br>
-                        <a type="button" href="form/update" class="lien btn btn-light">Modifier</a> 
+                        <a type="button" href="form/update" class="btn btn-outline-primary mr-2 AFB001">Modifier</a> 
                     </div>
                     <div class="clearfix my-3"></div>
                     <h3 class="text-center">Moyens de paiement</h3>
@@ -26,7 +26,7 @@
                         { 
                             ?>
 
-                            <a href="payment"><input type="button" class="lien btn btn-light" value="Ajouter un moyen de paiement"></a>
+                            <a href="payment"><input type="button" class="btn btn-outline-primary mr-2 AFB001" value="Ajouter un moyen de paiement"></a>
 
                             <?php
                         }
@@ -45,7 +45,7 @@
                 ?>
             </div>
         </div>
-        <div class="col-6 border">
+        <div class="col-6 border-start border-bottom">
             <h3 class="text-center">Location en cours</h3>
             <?php
             foreach($current_loc as $loc)
@@ -74,7 +74,7 @@
                         <b>Véhicule</b> : <?= $loc->c_model ?><br> 
                         <b>Date de début</b> : <?= $loc->l_startdate ?><br>
                         <b>Date de fin</b> : <?= $loc->l_enddate ?><br>
-                        <button type="button" class="lien btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $loc->l_id ?>">Annuler</button>                         
+                        <button type="button" class="btn btn-outline-primary mr-2 AFB001" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $loc->l_id ?>">Annuler</button>                         
                     </div>
                 </div>
 
@@ -89,7 +89,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
-                            <a href="deleteLocation<?= "/".$loc->l_id ?>"><button type="button" class="btn btn-primary">Oui</button></a>
+                            <a href="deleteLocation<?= "/".$loc->l_id ?>"><button type="button" class="btn btn-outline-primary mr-2 AFB001">Oui</button></a>
                         </div>
                         </div>
                     </div>

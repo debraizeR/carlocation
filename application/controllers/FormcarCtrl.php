@@ -34,10 +34,24 @@ class FormcarCtrl extends CI_Controller
         $this->load->view("footer");
     }
 
+
+
     public function form_validation()
     {
-        echo "oui";
         $this->load->library("form_validation");
+        $config['upload_path']          = 'assets/img';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg';
+                if(isset($this->session->c_id))
+                {
+                    $config['file_name'] = "car".$this->session->c_id.".png";
+                }
+                else{
+                    $config['file_name'] = "car_temp.png";
+                }
+                $config['max_size']             = 100000;
+                $config['max_width']            = 102400;
+                $config['max_height']           = 768000;
+        $this->load->library('upload', $config);
 
         $this->form_validation->set_rules("model", "model", "required");
         $this->form_validation->set_rules("numberplate", "numberplate", "required");
@@ -63,6 +77,13 @@ class FormcarCtrl extends CI_Controller
                 "c_cost" => $this->input->post("cost"),
                 "m_id" => $manu[0]->m_id
             );
+            
+
+            if ($this->upload->do_upload('carfile') == true)
+                {
+                    $data["c_filename"] = $this->upload->data('file_name');
+                }
+
 
             if($this->input->post("insert"))
             {

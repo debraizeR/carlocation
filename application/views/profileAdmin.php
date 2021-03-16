@@ -35,8 +35,7 @@ $(document).ready(function(){
     function hide_location()
     {
         $("#test").load("adminLocation");
-        $.session.set("page", "Location");
-
+        
     }
 
     function hide_car()

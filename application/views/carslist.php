@@ -2,32 +2,39 @@
     <?php
     $today = date("Y-m-d");
 
+    ?>
+
+    <div class="row">
+        
+            <form method="post" action="form_valid_index">
+            <div class="Formflex mt-3">
+                <div class="text-center">
+                    <label for="startDate" >Début de location</label>
+                    <input type="date" class="AX8W13 ms-1 me-3" id="startDate" name="startDate" min="<?= $today ?>" <?php if (isset($this->session->startdate)) { ?> value="<?= $this->session->startdate ?>" <?php } ?> required>
+                </div>
+                <div class="text-center">
+                    <label for="endDate">Fin de location</label>
+                    <input type="date" class="AX8W13 ms-1 me-3" id="endDate" name="endDate" min="<?= $today ?>" <?php if (isset($this->session->enddate)) { ?> value="<?= $this->session->enddate ?>" <?php } ?> required>
+                </div>
+                
+                </div>
+                <div class="text-center my-3">
+                    <input type="submit" class="btn btn-outline-primary mr-2 AFB001" id="confirmDate" name="confirmDate">
+                </div>
+            </form>
+        
+    </div>
+<div class="text-center">
+    <?php
     if (
         isset($this->session->startdate) && isset($this->session->enddate) && isset($this->session->car_id)
         && isset($this->session->login) && isset($this->session->password)
     ) {
     ?>
-        <a href="location"><input type="button" class="lien btn btn-light my-2" id="currentLoc" name="currentLoc" value="Location en cours de réservation"></a>
+        <a href="location"><input type="button" class="btn btn-outline-primary mr-2 AFB001" id="currentLoc" name="currentLoc" value="Location en cours de réservation"></a>
     <?php
-    }
-    ?>
-
-    <div class="row">
-        <form method="post" action="form_valid_index">
-            <div class="col-5">
-                <label for="startDate">Début de location</label>
-                <input type="date" class="AX8W13 ms-1 me-3" id="startDate" name="startDate" min="<?= $today ?>" <?php if (isset($this->session->startdate)) { ?> value="<?= $this->session->startdate ?>" <?php } ?> required>
-            </div>
-            <div class="col-5">
-                <label for="endDate">Fin de location</label>
-                <input type="date" class="AX8W13 ms-1 me-3" id="endDate" name="endDate" min="<?= $today ?>" <?php if (isset($this->session->enddate)) { ?> value="<?= $this->session->enddate ?>" <?php } ?> required>
-            </div>
-            <div class="col-1">
-                <input type="submit" class="btn btn-light mx-3" id="confirmDate" name="confirmDate">
-            </div>
-        </form>
-    </div>
-
+    } ?>
+</div>
     <div class="row table-responsive">
         <table class="table text-center">
             <thead>

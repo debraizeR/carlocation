@@ -19,7 +19,7 @@
 
 <nav class="navbar navbar-expand-lg sticky-top navbar-light p-3 bg-body solid">
     <div class="container-fluid">
-    <a class="navbar-brand" href="#">Carlocation</a>
+    <a class="navbar-brand" href="#"><img src="<?= base_url() ?>../assets/img/carlocation.png"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

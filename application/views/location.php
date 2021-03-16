@@ -1,6 +1,6 @@
-<div class="container border">
+<div class="container ">
     <div class="row">
-        <div class="col-6 border">
+        <div class="col-6 border-bottom">
             <h3 class="text-center">Informations sur la location</h3>
             <?php
             if(isset($cars))
@@ -10,6 +10,14 @@
                     ?>
                     <div class="row justify-content-center">
                         <div class="my-2" style="width: 50%;">
+                            <?php 
+                            if(isset($car->c_filename))
+                            {
+                                ?>
+                                <img src="<?= base_url() ?>../assets/img/<?= $car->c_filename ?>" style="width:100%">
+                                <?php
+                            }
+                            ?>
                             <b>Modèle</b> : <?= $car->c_model ?><br>
                             <b>immatriculation</b> : <?= $car->c_numberPlate ?><br>
                             <b>Boite de vitesse</b> : <?= $car->c_gearbox ?><br>
@@ -25,7 +33,7 @@
             }
             ?>
         </div>
-        <div class="col-6 border">
+        <div class="col-6 border-start border-bottom">
                        
             <?php 
             if(isset($profiles))
@@ -72,7 +80,7 @@
             ?>
         </div>
     </div>
-    <div class="row">
+    <div class="row text-center">
         <div>
             <b>Début de la location</b> : <?= $this->session->startdate ?><br>
             <b>Fin de la location</b> : <?= $this->session->enddate ?><br>
@@ -89,20 +97,20 @@
                 if(null != $payment)
                 {
                     ?>
-                    <a href="confirm"><input type="button" class="lien btn btn-light"id="confirmLocation" value="Confirmer"></a>
+                    <a href="confirm"><input type="button" class="btn btn-outline-primary mr-2 AFB001" id="confirmLocation" value="Confirmer"></a>
                     <?php
                 }
                 else
                 {
                     $this->session->set_userdata("loc_url", base_url().$this->uri->segment(1));
                     ?>
-                    <a href="payment"><input type="button" class="lien btn btn-light"id="confirmLocation" value="Ajouter un mode de paiement"></a>
+                    <a href="payment"><input type="button" class="btn btn-outline-primary mr-2 AFB001" id="confirmLocation" value="Ajouter un mode de paiement"></a>
                     <?php
                 }
                 
             }
             ?>
-            <a href="cancer_location"><input type="button" class="lien btn btn-light" value="Annuler la location"></a>
+            <a href="cancer_location"><input type="button" class="btn btn-outline-primary mr-2 AFB001" value="Annuler la location"></a>
         </div>
     </div>
 </div>

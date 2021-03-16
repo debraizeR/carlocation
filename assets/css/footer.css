@@ -155,7 +155,7 @@ h1, h2, h3, h4, h5, h6 {
     bottom: 0;
     left: 30%;
     -webkit-animation: myfirst 22s linear infinite;
-    animation: myfirst 10s linear infinite;
+    animation: myfirst 5s linear infinite;
 }
 
 .new_footer_top .footer_bg .footer_bg_two {
@@ -168,6 +168,18 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     -webkit-animation: myfirst 30s linear infinite;
     animation: myfirst 1.5s linear infinite;
+}
+
+.new_footer_top .footer_bg .footer_bg_three {
+    background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5c7f5e56-99ba-4690-bb82-862ceaaaf25e/d4jrskn-fe727634-41a9-4fc7-97c5-c910a9bc8ffc.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNWM3ZjVlNTYtOTliYS00NjkwLWJiODItODYyY2VhYWFmMjVlXC9kNGpyc2tuLWZlNzI3NjM0LTQxYTktNGZjNy05N2M1LWM5MTBhOWJjOGZmYy5naWYifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.Ul9ZLMBf5SrhAm8O80Q3DYifCq5CCF22iRSGJ9bjoHg") no-repeat center center;
+    width: 88px;
+    height: 100px;
+    bottom: 1;
+  background-size:100%;
+    left: 38%;
+    position: absolute;
+    -webkit-animation: myfirst 30s linear infinite;
+    animation: myfirst 5s linear infinite;
 }
 
 

@@ -25,6 +25,10 @@
     border: none;
 }
 
+.navbar-brand img {
+    vertical-align: baseline;
+    width: 10rem;
+}
 
 .navbar {
     background-color: transparent!important;

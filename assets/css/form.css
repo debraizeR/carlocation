@@ -53,3 +53,13 @@ i.AWQ74H {
 i.AWQ74H:hover {
     color: #dadada;
 }
+
+.Formflex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Formflex input{
+    width: 100%;
+}
